@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: telegram-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+    plan: free
+    # Worker services don't need ports - they run background tasks
+    # This bot uses polling (outbound requests) not webhooks (inbound)
+
+
+
+
